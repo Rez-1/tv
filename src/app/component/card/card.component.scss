@@ -1,0 +1,62 @@
+@import 'variables';
+@import 'mixins';
+
+:host,:host[medium] {
+	display: flex;
+	flex: auto;
+	flex-direction: column;
+	border-radius: $radius-s;
+	padding: $spacing-s;
+	margin: $spacing-s;
+	cursor: pointer;
+
+	.image, .image-placeholder {
+		min-width: 14em;
+		width: 14em;
+		border-radius: $radius-s;
+		@include breakpoint-to(phone) {
+			min-width: 10em;
+			width: 10em;
+		}
+	}
+	.image-placeholder {
+		height: 19.65em;
+		display: block;
+		background-color: $color-charcoal;
+		@include breakpoint-to(phone) {
+			height: 14em;
+		}
+	}
+	.metadata {
+		list-style: none;
+		margin: 0;
+		padding-left: $spacing-s;
+		color: $color-gainsboro;
+		display: flex;
+		flex-direction: column;
+		font-size: small;
+		max-width: 14em;
+	}
+	.name {
+		font-weight: bold;
+		font-size: medium;
+		color: $color-white;
+		margin: $spacing-s 0;
+	}
+}
+:host[small] {
+	flex-direction: row;
+	.image, .image-placeholder {
+		min-width: 4em;
+		width: 4em;
+	}
+	.image-placeholder {
+		height: 5.62em;
+	}
+	.name {
+		font-size: larger;
+	}
+	.metadata {
+		font-size: smaller;
+	}
+}

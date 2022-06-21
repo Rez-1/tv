@@ -1,0 +1,52 @@
+<div *ngIf="show.general" class="general">
+	<div>
+		<img *ngIf="show.general.image?.medium" class="image" [src]="show.general.image.medium">
+		<div *ngIf="!show.general.image?.medium" class="image-placeholder"></div>
+	</div>
+	<div *ngIf="show.general" class="metadata">
+		<div class="name">
+			<h2>{{show.general.name}}</h2>
+		</div>
+		<div class="year" *ngIf="show.general.premiered">{{show.general.premiered | date:'YYYY'}}</div>
+		<div class="language"><span class="label">Language</span>{{show.general.language}}</div>
+		<div class="rating" *ngIf="show.general.rating"><span class="label">Rating</span>{{show.general.rating?.average}}</div>
+		<div class="genres" *ngIf="show.general.genres"><span class="label">Genre</span>
+			<span class="genre" *ngFor="let genre of show.general.genres" routerLink="/browse/{{genre}}">{{genre}}</span>
+		</div>
+		<div class="summary" [innerHTML]="show.general.summary" *ngIf="show.general.summary"></div>
+		<div class="channel" *ngIf="show.general.webChannel">{{show.general.webChannel?.name}}</div>
+		<div class="network" *ngIf="show.general.network">{{show.general.network?.name}}</div>
+	</div>
+</div>
+<div *ngIf="show.seasons" class="seasons">
+	<h3>Series</h3>
+	<ul class="series">
+		<ng-container *ngFor="let season of show.seasons">
+			<li class="serie" *ngIf="season.premiereDate">
+				<a [href]="season.url" target="tvmaze">
+					<div *ngIf="!season.image?.medium" class="image-placeholder"></div>
+					<img *ngIf="season.image?.medium" class="image" [src]="season.image.medium">
+				</a>
+				<div class="name">{{season.name ? season.name : 'Season '+ season.number}}</div>
+				<div class="episodes">{{season.episodeOrder}} episodes</div>
+				<div class="year">{{season.premiereDate | date: 'YYYY'}}</div>
+			</li>
+		</ng-container>
+	</ul>
+</div>
+<div *ngIf="show.cast" class="cast">
+	<h3>Cast</h3>
+	<ul class="actors">
+		<ng-container *ngFor="let cast of show.cast">
+			<li class="actor">
+				<a [href]="cast.person.url" target="tvmaze">
+					<div *ngIf="!cast.person.image?.medium" class="image-placeholder"></div>
+					<img *ngIf="cast.person.image" class="image" [src]="cast.person.image?.medium">
+				</a>
+				<div class="character">{{cast.character?.name}}</div>
+				<div class="person">{{cast.person?.name}}</div>
+			</li>
+		</ng-container>
+	</ul>
+</div>
+<div *ngIf="notFound">Sorry couldn't find any results</div>

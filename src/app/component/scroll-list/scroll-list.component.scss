@@ -1,0 +1,46 @@
+@import 'variables';
+
+.list {
+	display: flex;
+	flex-wrap: nowrap;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+	&::-webkit-scrollbar {
+		display: none;
+	}
+	scroll-behavior: smooth
+
+	app-card {
+		flex: 0 0 auto;
+		cursor: pointer;
+	}
+}
+nav {
+	display: flex;
+	flex-direction: row;
+	padding: 0 $spacing-m;
+	justify-content: right;
+
+	.title {
+		flex-grow: 2;
+		margin: 0
+	}
+
+	.navigate {
+		font-weight: bold;
+		width: 1em;
+		height: 1em;
+		cursor: pointer;
+		padding: $spacing-s;
+		display: inline-block;
+		background-color: $color-black;
+		border-radius: $radius-s;
+		margin-left: $spacing-s;
+		line-height: 1;
+		text-align: center;
+
+		&:hover {
+			background-color: $color-charcoal;
+		}
+	}
+}

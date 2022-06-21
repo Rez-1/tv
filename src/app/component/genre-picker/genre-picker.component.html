@@ -1,0 +1,4 @@
+<span class="text">Navigate to genre:</span>
+<select [formControl]="selectControl">
+	<option *ngFor="let genre of genres" value="{{genre}}">{{genre}}</option>
+</select>

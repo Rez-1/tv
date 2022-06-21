@@ -1,0 +1,22 @@
+@import 'variables';
+@import 'mixins';
+
+:host {
+	@include  breakpoint-to(phone) {
+		flex-direction: column;
+	}
+
+	background-color: $color-black;
+	display: flex;
+	border-radius: $radius-s;
+	margin: $spacing-m;
+	padding: $spacing-s;
+	justify-content: space-between;
+}
+.logo {
+	cursor: pointer;
+
+	h2 {
+		margin: 0;
+	}
+}

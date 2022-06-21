@@ -1,0 +1,9 @@
+<img *ngIf="show.image?.medium" class="image" [src]="show.image.medium">
+<div *ngIf="!show.image?.medium" class="image-placeholder"></div>
+<ul *ngIf="show" class="metadata">
+	<li class="name">{{show.name}}</li>
+	<li class="year" *ngIf="show.premiered">{{show.premiered | date:'YYYY'}}</li>
+	<li class="language">{{show.language}}&nbsp;</li>
+	<li class="channel" *ngIf="show.webChannel">{{show.webChannel?.name}}</li>
+	<li class="network" *ngIf="show.network">{{show.network?.name}}</li>
+</ul>

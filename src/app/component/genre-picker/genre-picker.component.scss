@@ -1,0 +1,28 @@
+@import 'variables';
+@import 'mixins';
+
+:host {
+	@include breakpoint-to(phone) {
+		bottom: 0;
+		left: 0;
+		margin: 0;
+		padding: $spacing-s 0;
+		text-align: right;
+		width: 100%;
+	}
+}
+
+
+.text {
+	font-size: small;
+	padding-right: $spacing-s;
+}
+select {
+	background-color: $color-gainsboro;
+	border: none;
+	border-radius: $radius-l;
+	outline-style: none;
+	display: inline-block;
+	color: $color-nero;
+	padding: $spacing-s;
+}

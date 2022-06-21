@@ -1,0 +1,8 @@
+<nav>
+	<h3 class="title">{{title}}</h3>
+	<div class="navigate back" (click)="back()">&lt;</div>
+	<div class="navigate forward" (click)="forward()">&gt;</div>
+</nav>
+<div class="list" #list>
+	<app-card *ngFor="let show of shows" [show]="show" routerLink="/show/{{show.id}}"></app-card>
+</div>

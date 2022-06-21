@@ -1,0 +1,8 @@
+<form novalidate autocomplete="off">
+	<input type="text" [formControl]="queryControl" class="form-control" id="query" placeholder="Show name...">
+	<button (click)="onSearch()" [disabled]="!queryControl.value" type="submit">Search!</button>
+</form>
+<div class="inline-result" *ngIf="inlineResult">
+	<div>Jump to:</div>
+	<app-card [show]="inlineResult" small routerLink="/show/{{inlineResult.id}}"></app-card>
+</div>

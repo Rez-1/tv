@@ -1,0 +1,57 @@
+@import 'variables';
+@import 'mixins';
+
+:host {
+	@include breakpoint-to(phone) {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		margin: 0;
+		padding: $spacing-s 0;
+		text-align: center;
+		width: 100%;
+	}
+}
+
+input, button {
+	background-color: $color-gainsboro;
+	border: none;
+	border-radius: $radius-l;
+	outline-style: none;
+	display: inline-block;
+	color: $color-nero;
+	padding: $spacing-s;
+}
+input {
+	border-radius: $radius-l 0 0 $radius-l;
+	@include breakpoint-to(phone) {
+		width: 70%;
+	}
+}
+button {
+	background-color: $color-white;
+	font-weight: bold;
+	cursor: pointer;
+	border-radius: 0 $radius-l $radius-l 0;
+}
+
+.inline-result {
+	position: absolute;
+	border-radius: $radius-s;
+	background-color: $color-black;
+	margin-top: $spacing-m;
+	padding: $spacing-s;
+	min-width: 20em;
+	@include breakpoint-to(phone) {
+		margin-top: -100px;
+		width: 100%;
+	}
+
+	::ng-deep app-card {
+		background-color: $color-nero;
+
+		&:hover {
+			background-color: $color-charcoal;
+		}
+	}
+}

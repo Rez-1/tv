@@ -1,0 +1,35 @@
+@import 'variables';
+
+$breakpoints: (
+	phone: (from: 0px,to: 649px),
+	tablet: (from: 650px, to: 1439px),
+	desktop: (from: 1440px, to: 10000px)
+);
+
+@mixin tag {
+	background-color: $color-gray;
+	display: inline-block;
+	border-radius: .6em;
+	padding: 0 $spacing-s;
+	font-size: small;
+}
+
+@mixin page {
+	display: block;
+	overflow: hidden;
+	padding: 0 $spacing-l;
+}
+
+@mixin breakpoint-from($bp) {
+	$from: map-get(map-get($breakpoints, $bp), from);
+	@media (min-width: $from) {
+		@content;
+	}
+}
+
+@mixin breakpoint-to($bp) {
+	$to: map-get(map-get($breakpoints, $bp), to);
+	@media (max-width: $to) {
+		@content;
+	}
+}
